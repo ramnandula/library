@@ -6,25 +6,31 @@
     <head>
         <meta charset="utf-8">
         <title>Library</title>
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>   
-        <button id="btn">NEW BOOK</button>
+        <h1>My Library</h1>
+        <table></table> 
+        <button class="new-button">New Book</button>
         <div class="form-popup" id="myForm">
-            <form action="" class="form-container">
-              <h1>Login</h1>
+            <form class="form-container">
+              <h1>Book Info</h1>
           
-              <label for="email"><b>Book Title</b></label>
-              <input type="text" placeholder="Enter title" name="email" required>
+              <label><b>Title</b></label>
+              <input type="text" placeholder="Enter title" id="title" required>
           
-              <label for="psw"><b>Book Author</b></label>
-              <input type="password" placeholder="Enter author" name="psw" required>
+              <label><b>Author</b></label>
+              <input type="text" placeholder="Enter author" id="author" required>
           
-              <label for="psw"><b>Number of Pages</b></label>
-              <input type="password" placeholder="Enter number of pages" name="psw" required>
+              <label><b>Pages</b></label>
+              <input type="text" placeholder="Enter number of pages" id="pages" required>
           
-              <label for="psw"><b>Read?</b></label>
-              <input type="password" placeholder="Enter yes or no" name="psw" required>
+              <label><b>Read?</b></label>
+              <input type="text" placeholder="Enter yes or no" id="read" required>
+              
+              <button class="btn add-button">Add Book</button>
+              <button class="btn cancel-button">Close</button>  
             </form>
           </div> 
           <script src="script.js"></script>

@@ -10,25 +10,66 @@ function Book(title, author, pages, hasBeenRead) {
     this.hasBeenRead = hasBeenRead
 }
 
-function displayBooks() {
-
+function addBookToLibrary(title, author, numPages, hasBeenRead) {
+    const book = new Book(title, author, numPages, hasBeenRead);
+    myLibrary.push(book);
+    console.log(myLibrary)
+    console.log("added book");
 }
 
-window.onload = function () {
-//     let title = prompt("Enter the book title: ")
-//     let author = prompt("Enter the book author: ")
-//     let numPages = prompt("Enter the book pages: ")
-//     let hasBeenRead = prompt("Enter whether the book has been read: ")
-
-//     const book = new Book(title, author, numPages, hasBeenRead)
-//     myLibrary.push(book)
-    closeForm();
+function clearTable() {
+    const table = document.querySelector('table');
+    while(table.rows.length > 0) {
+        table.deleteRow(0);
+    }
 }
 
-const btn = document.querySelector('#btn');
-btn.addEventListener('click', () => {
-    // alert("Hello World!");
+function displayLibrary() {
+    // clearTable();
+    const table = document.querySelector('table');
+    for (let i = 0; i < myLibrary.length; i++) {
+        const book = myLibrary[i];
+        const row = table.insertRow(i);
+
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+
+        cell1.innerHTML = book.title;
+        cell2.innerHTML = book.author;
+        cell3.innerHTML = book.pages;
+        cell4.innerHTML = book.hasBeenRead;
+    }
+    console.log("displayed book");
+}
+
+// window.onload = function () {
+//     closeForm();
+// }
+
+const newBtn = document.querySelector('.new-button');
+newBtn.addEventListener('click', () => {
     openForm();
+});
+
+const addBtn = document.querySelector('.add-button');
+addBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const numPages = document.querySelector('#pages').value;
+    const hasBeenRead = document.querySelector('#read').value;
+    // alert(title + " " + author + " " + numPages + " " + hasBeenRead);
+   
+    addBookToLibrary(title, author, numPages, hasBeenRead);
+    displayLibrary();
+});
+
+const closeBtn = document.querySelector('.cancel-button');
+closeBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    closeForm();
 });
 
 function openForm() {
