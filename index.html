@@ -3,36 +3,56 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Library</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>   
-        <h1>My Library</h1>
-        <table></table> 
-        <button class="new-button">New Book</button>
-        <div class="form-popup" id="myForm">
-            <form class="form-container">
-              <h1>Book Info</h1>
-          
-              <label><b>Title</b></label>
-              <input type="text" placeholder="Enter title" id="title" required>
-          
-              <label><b>Author</b></label>
-              <input type="text" placeholder="Enter author" id="author" required>
-          
-              <label><b>Pages</b></label>
-              <input type="text" placeholder="Enter number of pages" id="pages" required>
-          
-              <label><b>Read?</b></label>
-              <input type="text" placeholder="Enter yes or no" id="read" required>
-              
-              <button class="btn add-button">Add Book</button>
-              <button class="btn cancel-button">Close</button>  
-            </form>
-          </div> 
-          <script src="script.js"></script>
-    </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Library</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>My Library</h1>
+
+  <table class="table table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Number of Pages</th>
+      <th>Been Read?</th>
+      <th>Remove Book</th>
+      <th>Edit Book</th>
+      <th>Change</th>
+    </tr>
+  </table>
+
+  <table class="table table-dark" id="library">
+  </table>
+
+  <button class="new-button">New Book</button>
+  <div class="form-popup" id="myForm">
+    <form class="form-container">
+      <h1>Book Info</h1>
+
+      <label><b>Title</b></label>
+      <input type="text" placeholder="Enter title" id="title" required>
+
+      <label><b>Author</b></label>
+      <input type="text" placeholder="Enter author" id="author" required>
+
+      <label><b>Pages</b></label>
+      <input type="text" placeholder="Enter number of pages" id="pages" required>
+
+      <label><b>Read?</b></label>
+      <!-- <input type="text" placeholder="Enter yes or no" id="read" required> -->
+      <input type="checkbox" id="read" required>
+
+      <button class="btn add-button">Add Book</button>
+      <button class="btn cancel-button">Close</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html

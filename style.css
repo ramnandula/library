@@ -2,7 +2,7 @@
 /* Odin Project - Library */
 
 .new-button {
-    background-color: #555;
+    background-color: #00CED1;
     color: white;
     padding: 16px 20px;
     border: none;
@@ -42,4 +42,12 @@
 
 .form-container .cancel-button {
     background-color: red;
+}
+
+table {
+
+}
+
+h1 {
+    text-align: center;
 }
