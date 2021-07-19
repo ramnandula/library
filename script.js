@@ -17,6 +17,10 @@ function addBookToLibrary(title, author, numPages, hasBeenRead) {
     console.log("added book");
 }
 
+function removeBookFromLibrary() {
+    console.log("book removed");
+}
+
 function clearTable() {
     const table = document.querySelector('#library');
     while (table.rows.length > 0) {
@@ -43,9 +47,16 @@ function displayLibrary() {
         cell2.innerHTML = book.author;
         cell3.innerHTML = book.pages;
         cell4.innerHTML = book.hasBeenRead;
-        cell5.innerHTML = '<button>Edit</button>';
-        cell6.innerHTML = '<button>Remove</button>';
-        cell7.innerHTML = '<input type="checkbox" id="read" required>';
+        
+        const edit = document.createElement('button');
+        edit.innerHTML = "EDIT";
+        edit.className = "edit-button";
+        cell5.appendChild(edit);
+        edit.addEventListener('click', () => {
+            removeBookFromLibrary();
+        });
+        // cell6.innerHTML = '<button>Remove</button>';
+        // cell7.innerHTML = '<input type="checkbox" id="read" required>';
     }
     console.log("displayed book");
 }
@@ -54,6 +65,15 @@ function displayLibrary() {
 //     closeForm();
 // }
 
+// const editBtn = document.querySelector('.edit-button');
+// if (editBtn) {
+//     console.log("edit clicked");
+//     editBtn.addEventListener('click', function (e) {
+//         console.log(e);
+//     });
+// }
+
+
 const newBtn = document.querySelector('.new-button');
 newBtn.addEventListener('click', () => {
     openForm();
@@ -61,7 +81,7 @@ newBtn.addEventListener('click', () => {
 
 const addBtn = document.querySelector('.add-button');
 addBtn.addEventListener('click', function (e) {
-    e.preventDefault();
+    e.preventDefault(); 
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
     const numPages = document.querySelector('#pages').value;
