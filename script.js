@@ -4,10 +4,10 @@
 let myLibrary = [];
 
 function Book(title, author, pages, hasBeenRead) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.hasBeenRead = hasBeenRead
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.hasBeenRead = hasBeenRead;
 }
 
 function addBookToLibrary(title, author, numPages, hasBeenRead) {
@@ -18,7 +18,6 @@ function addBookToLibrary(title, author, numPages, hasBeenRead) {
 }
 
 function removeBookFromLibrary() {
-    console.log("book removed");
 }
 
 function clearTable() {
@@ -48,14 +47,35 @@ function displayLibrary() {
         cell3.innerHTML = book.pages;
         cell4.innerHTML = book.hasBeenRead;
         
-        const edit = document.createElement('button');
-        edit.innerHTML = "EDIT";
-        edit.className = "edit-button";
-        cell5.appendChild(edit);
-        edit.addEventListener('click', () => {
-            removeBookFromLibrary();
+        const changeBtn = document.createElement('button');
+        changeBtn.innerHTML = "CHANGE";
+        // editBtn.className = "edit-button";
+        cell5.appendChild(changeBtn);
+        changeBtn.addEventListener('click', () => {
+            const index = changeBtn.parentNode.parentNode.rowIndex;
+            console.log(index);
+            const book = myLibrary[index];
+
+            if (book.hasBeenRead) {
+                book.hasBeenRead = false;
+            }
+            else {
+                book.hasBeenRead = true;
+            }
+            displayLibrary();
         });
-        // cell6.innerHTML = '<button>Remove</button>';
+       
+        const removeBtn = document.createElement('button');
+        removeBtn.innerHTML = "REMOVE";
+        // removeBtn.className = "remove-button";
+        cell6.appendChild(removeBtn);
+        removeBtn.addEventListener('click', () => {
+            const index = removeBtn.parentNode.parentNode.rowIndex;
+            console.log(index);
+            myLibrary.splice(index, 1);
+            displayLibrary();
+        });
+
         // cell7.innerHTML = '<input type="checkbox" id="read" required>';
     }
     console.log("displayed book");
