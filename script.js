@@ -20,6 +20,14 @@ function addBookToLibrary(title, author, numPages, hasBeenRead) {
 function removeBookFromLibrary() {
 }
 
+function saveLibrary() {
+    localStorage.setItem('library', JSON.stringify(myLibrary));
+}
+
+function retrieveLibrary() {
+    const library = localStorage.getItem('library');
+}
+
 function clearTable() {
     const table = document.querySelector('#library');
     while (table.rows.length > 0) {
@@ -48,8 +56,7 @@ function displayLibrary() {
         cell4.innerHTML = book.hasBeenRead;
         
         const changeBtn = document.createElement('button');
-        changeBtn.innerHTML = "CHANGE";
-        // editBtn.className = "edit-button";
+        changeBtn.innerHTML = "Change Read Status";
         cell5.appendChild(changeBtn);
         changeBtn.addEventListener('click', () => {
             const index = changeBtn.parentNode.parentNode.rowIndex;
@@ -57,7 +64,7 @@ function displayLibrary() {
             const book = myLibrary[index];
 
             if (book.hasBeenRead) {
-                book.hasBeenRead = false;
+                book.hasBeenRead = "false";
             }
             else {
                 book.hasBeenRead = true;
@@ -66,8 +73,7 @@ function displayLibrary() {
         });
        
         const removeBtn = document.createElement('button');
-        removeBtn.innerHTML = "REMOVE";
-        // removeBtn.className = "remove-button";
+        removeBtn.innerHTML = "Remove Book";
         cell6.appendChild(removeBtn);
         removeBtn.addEventListener('click', () => {
             const index = removeBtn.parentNode.parentNode.rowIndex;
@@ -75,24 +81,9 @@ function displayLibrary() {
             myLibrary.splice(index, 1);
             displayLibrary();
         });
-
-        // cell7.innerHTML = '<input type="checkbox" id="read" required>';
     }
     console.log("displayed book");
 }
-
-// window.onload = function () {
-//     closeForm();
-// }
-
-// const editBtn = document.querySelector('.edit-button');
-// if (editBtn) {
-//     console.log("edit clicked");
-//     editBtn.addEventListener('click', function (e) {
-//         console.log(e);
-//     });
-// }
-
 
 const newBtn = document.querySelector('.new-button');
 newBtn.addEventListener('click', () => {
@@ -106,10 +97,9 @@ addBtn.addEventListener('click', function (e) {
     const author = document.querySelector('#author').value;
     const numPages = document.querySelector('#pages').value;
     const hasBeenRead = document.querySelector('#read').checked;
-    // console.log(hasBeenRead)
-    // alert(title + " " + author + " " + numPages + " " + hasBeenRead);
 
     addBookToLibrary(title, author, numPages, hasBeenRead);
+    saveLibrary();
     displayLibrary();
 });
 
