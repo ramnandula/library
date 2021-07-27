@@ -1,5 +1,9 @@
-/* Ram Aditya Nandula - 6/24/21 */
+/* Ram Aditya Nandula - 7/19/21 */
 /* Odin Project - Library */
+
+html {
+  background-color: #4077b6;
+}
 
 .new-button {
   background-color: #00ced1;
